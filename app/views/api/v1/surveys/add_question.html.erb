@@ -1,0 +1,16 @@
+<%= form_with(model: @question, scope: :question, url: add_survey_api_v1_surveys_path(@question)) do |form| %>
+  <div data-question-item-target="question_item">
+    <%= form.text_field :title, placeholder: "請輸入問題", data: {action: "change->question-item#change_value"} %>
+    <%= form.select :question_type,
+        options_for_select(Question.question_type_select),
+        {}, data: {action: "change->question-item#question_select","question-item-target": "question_select" } %>
+    <%= form.button "刪除問題", data: {action: "click->question-item#remove_question"}%>
+
+    <div data-controller="answer-item" data-question-item-target="answer">
+    <%= form.button "新增選項", data: {action: "click->answer-item#add_answer"}%>
+    </div>
+  </div>
+  
+<% end %>
+
+
