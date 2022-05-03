@@ -1,4 +1,5 @@
 import { Controller } from "stimulus";
+import question from "./survey-question_controller";
 
 export default class extends Controller {
   static targets = [
@@ -13,7 +14,9 @@ export default class extends Controller {
     this.state = {};
   }
 
-  connect() {}
+  connect() {
+    console.log(question.new);
+  }
 
   survey_value(e) {
     this.state.survey = {
@@ -31,7 +34,7 @@ export default class extends Controller {
 
   add_question() {
     const questions = this.add_questionTarget;
-    const survey_question = this.add_questionTarget.parentElement;
+    const survey_question = this.element;
     // console.log(this.add_questionTarget.parentElement);
     survey_question.insertAdjacentElement("beforeend", questions);
   }
