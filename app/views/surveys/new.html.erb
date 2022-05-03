@@ -1,13 +1,38 @@
-<%= form_with(model: @survey, url: add_survey_api_v1_surveys_path(@suevey)) do |form| %>
-  <div>
-    <%= form.text_field :title, placeholder: "問卷名稱" %><br>
-    <%= form.text_area :description, placeholder: "說明" %>
+<section data-controller="survey-form" class=" border border-black p-4">
+  <div class="survey-title">
+    <label for="survey-title">問卷標題</label>
+    <input 
+      type="text"
+      id="survey-title"
+      placeholder="請輸入標題"
+      data-survey-form-target="title" data-action="input->survey-form#survey_value" />
   </div>
-  <div data-controller="question-item">
-    <%= form.button "新增問題", data: {action: "click->question-item#add_question"}%>
+  <div class="description">
+    <label for="description">問卷說明</label>
+    <textarea 
+      id="description"
+      placeholder="請輸入標題"
+      data-survey-form-target="description" data-action="input->survey-form#survey_value"></textarea>
   </div>
-  <div>
-    <%= form.submit "新增問卷"%>
+  
+  <div data-controller="survey-question" >
+    <div class="question-title" data-survey-form-target="add_question">
+      <label for="question-title">題目</label>
+      <input 
+        type="text" 
+        placeholder="請輸入題目"
+        id="question-title"
+        data-survey-form-target="question_title"
+        data-action="input->survey-form#survey_value" />
+      <select name="question_type" id="question_type" data-survey-form-target="question_type"
+      data-action="change->survey-form#survey_value">
+        <option value="0">單選</option>
+        <option value="1">多選</option>
+        <option value="2">問答</option>
+      </select>
+    </div>
   </div>
-<% end %>
-
+  <button 
+    data-action="click->survey-form#add_question">新增問題
+  </button>
+</section>

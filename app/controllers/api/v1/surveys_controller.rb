@@ -8,11 +8,12 @@ class Api::V1::SurveysController < ApplicationController
     @question.answers=[@answer]
     @survey.questions=[@question]
 
-    if @survey.save 
-      redirect_to root_path
-    else
-      render template: "surveys/new"
-    end
+    render html: params
+    # if @survey.save 
+    #   redirect_to root_path
+    # else
+    #   render template: "surveys/new"
+    # end
   end
 
   def add_question
