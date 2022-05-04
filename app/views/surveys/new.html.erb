@@ -4,10 +4,10 @@
     <%= form.text_area :description, placeholder: "說明" %>
   </div>
   <div data-controller="question-item">
-    <%= form.button "新增問題", data: {action: "click->question-item#add_question"}%>
+    <%= form.button "新增問題", data: {action: "click->question-item#add_question"},class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%>
   </div>
   <div>
-    <%= form.submit "新增問卷"%>
+    <%= form.submit "新增問卷", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%>
   </div>
 <% end %>
 

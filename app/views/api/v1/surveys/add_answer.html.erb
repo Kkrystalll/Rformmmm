@@ -1,6 +1,6 @@
 <%= form_with(model: @answer, scope: :answer, url: add_survey_api_v1_surveys_path(@answer)) do |form| %>
   <div data-answer-item-target="answer_item">
     <%= form.text_field :title, placeholder: "請輸入選項", data: {action: "change->answer-item#change_value"}%>
-    <%= form.button "刪除選項", data: {action: "click->answer-item#remove_answer" } %>
+    <%= form.button "刪除選項", data: {action: "click->answer-item#remove_answer" },class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
 <% end %>
