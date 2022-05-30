@@ -105,7 +105,8 @@
             <%= render 'question_fields', form: question %>
           <% end %>
           <div data-nested-form-target="add_item" class="down">
-            <%= link_to "新增問題", "#", data: { action: "nested-form#add_association auto-save#add_question_item" }, class: "new_question_btn" %>
+            <%= link_to "新增問題", "#", data: { action: "nested-form#add_association auto-save#add_question_item" }, class: "new_question_btn fixed left-6 top-48 " %>
+            <%= link_to "嗨嗨嗨", "#", data: { action: "nested-form#add_association auto-save#add_question_item" }, class: "new_question_btn fixed left-0 top-0" %>
             <%= form_with(model: survey) do |form| %>
               <%= form.file_field :image, class:"hidden" %>
               <%= form.submit "更換圖片", class:"hidden" %>

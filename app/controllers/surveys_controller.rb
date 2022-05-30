@@ -33,10 +33,10 @@ class SurveysController < ApplicationController
   def update
     @survey.image.purge
     @survey.update(survey_params)
-    @survey.image.attach(params[:survey][:image])
-    if @survey.questions.first.image.attach(params[:survey][:questions_attributes]["0"][:image])
-      redirect_to surveys_path, notice: "`更換圖片成功#{params[:survey][:questions_attributes]["0"][:image]}`"
-    end
+    # @survey.image.attach(params[:survey][:image])
+    # if @survey.questions.first.image.attach(params[:survey][:questions_attributes]["0"][:image])
+    #   redirect_to surveys_path, notice: "`更換圖片成功#{params[:survey][:questions_attributes]["0"][:image]}`"
+    # end
   end
 
   def destroy
