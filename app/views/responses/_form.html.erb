@@ -29,7 +29,7 @@
               <% when '多選題' %>
                 <% question.answers.each do |answer| %>
                   <label class= "response_choice bg-<%= @survey.theme%> hover:bg-<%= @survey.background_color %>">
-                    <%= response.check_box question.id, { multiple: true,class: 'radio_button h-6 w-6 ml-1 mr-3 accent-ironGaryHover' }, answer.id %>
+                    <%= response.check_box question.id, { multiple: true, class: 'radio_button h-6 w-6 ml-1 mr-3 accent-ironGaryHover' }, answer.id, , data: {action: "change->responses#checked"} %>
                     <%= answer.title %>
                   </label>
                 <% end %>
@@ -47,7 +47,7 @@
                   <tr class="tr flex justify-around flex-wrap ">
                     <% question.answers.each do |answer| %>
                       <td>
-                        <%= response.radio_button question.id, answer.id, class: 'radio_button h-6 w-6' %>
+                        <%= response.radio_button question.id, answer.id, class: 'radio_button h-6 w-6', , data: {action: "change->responses#checked"} %>
                       </td>
                     <% end %>
                   </tr>
